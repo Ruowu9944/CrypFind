@@ -1,0 +1,11 @@
+numpy
+pandas
+requests
+tqdm
+zstandard
+biopython
+scipy
+torch
+torch-geometric
+gemmi
+matplotlib

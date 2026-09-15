@@ -1,0 +1,34 @@
+file	size	category	purpose	original_location	modified_for_release	notes
+README.md	2.8 KB	documentation	Release overview and execution contract	N/A (release-authored from inspected source workflow)	yes	Excludes non-dataset research areas and documents external inputs.
+DATASET.md	1.7 KB	documentation	Dataset format, stages, and QC statistics	N/A (release-authored from inspected source outputs)	yes	No raw structures or graphs included.
+requirements.txt	92 B	config	Python dependencies for construction and QC	N/A (release-authored)	yes	Unpinned because no source environment lockfile was found in scope.
+LICENSE	1.1 KB	documentation	MIT open-source license	N/A (release-authored)	yes	Selected permissive license for this release.
+CHANGELOG.md	390 B	documentation	Version history	N/A (release-authored)	yes	Documents v1.0.0 scope.
+RELEASE_NOTES_v1.0.0.md	690 B	documentation	GitHub release description	N/A (release-authored)	yes	Ready to paste into the v1.0.0 release.
+dataset_construction/filter_homodimer_candidates.py	2.8 KB	dataset_construction	Chunked ipTM/pDockQ/clash filter	AlphaFold_Data/clean_global_high_quality_targets.py	yes	CLI arguments added; refuses to overwrite output; retained ipTM/pDockQ to match downstream selection and source output schema.
+dataset_construction/select_uniref50_representatives.py	5.8 KB	dataset_construction	UniRef50 mapping join and highest-ipTM representative selection	AlphaFold_Data/refine_by_uniref50.py	no	Already used CLI-relative paths.
+dataset_construction/prepare_uniprot_mapping_batches.py	679 B	dataset_construction	Split accession list for external mapping submission	AlphaFold_Data/split_ids_for_mapping.py	no	Requires external UniProt/UniRef50 mapping service or data.
+dataset_construction/download_apo_monomers.py	9.6 KB	dataset_construction	Resumable AlphaFold DB apo monomer downloader	AlphaFold_Data/download_apo.py	no	Network download; not run during release preparation.
+dataset_construction/download_holo_complexes.py	8.6 KB	dataset_construction	Resumable multimer/homodimer downloader	AlphaFold_Data/auto_download_holo_direct.py	yes	Removed server-specific zstd default and resolves zstd from PATH.
+dataset_construction/holo_download_io.py	5.2 KB	dataset_construction	I/O helper used by holo downloader	AlphaFold_Data/_holo_direct_io.py	no	No credentials or proxy values retained.
+dataset_construction/build_paired_graphs.py	18 KB	dataset_construction	Residue mapping, backbone validation, graph and label construction	build_pyg_graphs.py	no	Already exposes relative-path CLI options.
+dataset_qc/dataset_stage_audit.py	2.7 KB	dataset_qc	Construction yield and exclusion audit	edgegcl_dataset_characterization_20260816/scripts/01_dataset_qc.py	yes	Private absolute root replaced by CRYPFIND_DATA_ROOT and CRYPFIND_QC_OUT.
+dataset_qc/graph_contact_audit.py	3.3 KB	dataset_qc	Read-only graph schema and contact-label audit	edgegcl_dataset_characterization_20260816/scripts/02_delta_d_analysis.py	yes	Private absolute root replaced by environment-configured paths.
+dataset_qc/finalize_contact_audit.py	1.6 KB	dataset_qc	Merge contact-audit chunks and report edge statistics	edgegcl_dataset_characterization_20260816/scripts/05_finalize_delta.py	yes	Private absolute root replaced by environment-configured paths.
+dataset_qc/corrected_rmsd_qc.py	3.8 KB	dataset_qc	Kabsch global/interface RMSD and Biopython validation	edgegcl_rmsd_dataset_qc_20260817/scripts/corrected_rmsd_qc.py	yes	Private absolute root and source import replaced by release-relative configuration.
+dataset_qc/finalize_rmsd_qc.py	6.4 KB	dataset_qc	Aggregate RMSD chunks, summaries, and QC figure	edgegcl_rmsd_dataset_qc_20260817/scripts/finalize_corrected_rmsd_qc.py	yes	Private absolute root and local source import replaced.
+dataset_qc/make_dataset_characterization_figure.py	9.4 KB	dataset_qc	Dataset yield/contact-disruption figure generation	edgegcl_figure2_dataset_characterization_20260817/scripts/make_figure2_dataset_characterization_v2.py	yes	Private paths replaced by configurable QC-table and output paths.
+examples/initial_candidates_example.csv	675 B	example	Ten-row metadata schema example	AlphaFold_Data/global_high_quality_targets.csv	yes	First 10 source rows only; not a data release.
+examples/paired_targets_example.csv	869 B	example	Ten-row post-UniRef50 pairing-list schema example	AlphaFold_Data/refined_homo_pretrain_final.csv	yes	First 10 source rows only; not a data release.
+metadata/dataset_stage_counts.csv	168 B	metadata	Construction-stage yields	edgegcl_dataset_characterization_20260816/tables/dataset_stage_counts.csv	no	Source result.
+metadata/preprocessing_exclusion_reasons.csv	156 B	metadata	Graph-construction exclusion counts	edgegcl_dataset_characterization_20260816/tables/preprocessing_exclusion_reasons.csv	no	Source result.
+metadata/dataset_qc_summary.json	996 B	metadata	High-confidence and UniRef50 summary statistics	edgegcl_dataset_characterization_20260816/tables/dataset_qc_summary.json	no	Source result.
+metadata/delta_d_summary.json	1.3 KB	metadata	Contact/label and edge statistics	edgegcl_dataset_characterization_20260816/tables/delta_d_summary.json	no	Source result.
+metadata/rmsd_dataset_qc_summary.json	2.5 KB	metadata	Corrected RMSD and mapping-coverage statistics	edgegcl_rmsd_dataset_qc_20260817/tables/rmsd_dataset_qc_summary.json	no	Source result.
+metadata/rmsd_preflight_biopython_10samples.csv	1.2 KB	metadata	Biopython SVD preflight validation	edgegcl_rmsd_dataset_qc_20260817/tables/rmsd_preflight_biopython_10samples.csv	no	Source result.
+metadata/rmsd_independent_validation_30samples.csv	3.3 KB	metadata	Distributed Biopython SVD validation	edgegcl_rmsd_dataset_qc_20260817/tables/rmsd_independent_validation_30samples.csv	no	Source result.
+metadata/figure2_source_statistics.json	359 B	metadata	Published figure source totals	edgegcl_figure2_dataset_characterization_20260817/tables/figure2_source_statistics.json	no	Source result.
+figures/Figure2_dataset_characterization.pdf	39 KB	metadata	Dataset-characterization figure	edgegcl_figure2_dataset_characterization_20260817/figures/Figure2_dataset_characterization.pdf	no	Directly related to construction/QC only.
+figures/Figure2_dataset_characterization.png	721 KB	metadata	Dataset-characterization figure preview	edgegcl_figure2_dataset_characterization_20260817/figures/Figure2_dataset_characterization.png	no	Directly related to construction/QC only.
+figures/Fig_RMSD_dataset_QC.pdf	24 KB	metadata	Corrected RMSD QC figure	edgegcl_rmsd_dataset_qc_20260817/figures/Fig_RMSD_dataset_QC.pdf	no	Directly related to construction/QC only.
+figures/Fig_RMSD_dataset_QC.png	235 KB	metadata	Corrected RMSD QC figure preview	edgegcl_rmsd_dataset_qc_20260817/figures/Fig_RMSD_dataset_QC.png	no	Directly related to construction/QC only.

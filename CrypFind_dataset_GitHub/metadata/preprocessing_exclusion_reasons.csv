@@ -1,0 +1,4 @@
+reason,count,percentage_of_stage_b
+missing_apo,10244,0.022524830305175828
+missing_holo,79321,0.17441351665724833
+too_few_nodes,1,2.1988315409191558e-06

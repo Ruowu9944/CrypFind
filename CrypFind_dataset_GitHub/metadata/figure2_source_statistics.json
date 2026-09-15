@@ -1,0 +1,14 @@
+{
+  "final_graphs": 365221,
+  "unique_contacts": 48214027,
+  "disrupted_contacts": 1027471,
+  "non_disrupted_contacts": 47186556,
+  "graphs_with_ge1_disruption": 57704,
+  "pct_graphs_with_ge1_disruption": 0.15799748645340767,
+  "p95_graph_disruption_fraction": 0.0625,
+  "delta_display_range": [
+    -0.6524999999999963,
+    3.9375
+  ],
+  "inset_used": true
+}

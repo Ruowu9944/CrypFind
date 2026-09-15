@@ -1,0 +1,47 @@
+{
+  "valid_graphs": 365221,
+  "unreadable": 0,
+  "bad_schema": 0,
+  "node0": 0,
+  "edge0": 0,
+  "directed_edges": 96428054,
+  "unique_undirected_contacts": 48214027,
+  "positive_unique_contacts": 1027471,
+  "positive_fraction": 0.021310623980859346,
+  "stored_recomputed_label_agreement": 1.0,
+  "delta_d_histogram_bin_width": 0.0049999999999954525,
+  "delta_d_quantiles_histogram_approx": {
+    "0.01": -0.6550000000000011,
+    "0.05": -0.26500000000000057,
+    "0.25": -0.09999999999999432,
+    "0.5": -0.045000000000001705,
+    "0.75": 0.03499999999999659,
+    "0.95": 0.394999999999996,
+    "0.99": 24.460000000000008
+  },
+  "per_graph_disrupted_fraction": {
+    "N": 365221,
+    "median": 0.0,
+    "IQR": [
+      0.0,
+      0.0
+    ],
+    "mean": 0.013001955300462128,
+    "SD": 0.05297572028411467,
+    "P5": 0.0,
+    "P95": 0.0625
+  },
+  "positive_zero_fraction": 0.8420025135465924,
+  "positive_ge1_fraction": 0.15799748645340767,
+  "delta_d_histogram_moment_approx": {
+    "mean": 0.5176508425827719,
+    "SD": 4.481719147560279
+  },
+  "count_delta_d_gt_0A": 16045497,
+  "count_delta_d_gt_1A": 1410050,
+  "count_delta_d_gt_2A": 1134598,
+  "count_delta_d_gt_2.5A": 1073791,
+  "count_delta_d_gt_3A": 1027283,
+  "count_delta_d_gt_3.5A": 990635,
+  "count_delta_d_gt_4A": 960854
+}
