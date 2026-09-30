@@ -1,0 +1,54 @@
+title                   = CrypFind 100 ns production (representative replica)
+integrator              = md
+dt                      = 0.002
+nsteps                  = 50000000
+
+; Output: coordinates every 100 ps
+nstxout                 = 0
+nstvout                 = 0
+nstfout                 = 0
+nstlog                  = 5000
+nstenergy               = 5000
+nstxout-compressed      = 50000
+compressed-x-grps       = System
+
+; Nonbonded interactions
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.0
+coulombtype             = PME
+rcoulomb                = 1.0
+vdwtype                 = Cut-off
+rvdw                    = 1.0
+pme_order               = 4
+fourierspacing          = 0.12
+DispCorr                = EnerPres
+
+; Temperature coupling
+tcoupl                  = V-rescale
+tc-grps                 = Protein non-Protein
+tau_t                   = 0.1 0.1
+ref_t                   = 300 300
+
+; Pressure coupling
+pcoupl                  = Parrinello-Rahman
+pcoupltype              = isotropic
+tau_p                   = 2.0
+ref_p                   = 1.0
+compressibility         = 4.5e-5
+
+; Constraints and boundaries
+constraints             = h-bonds
+constraint_algorithm    = lincs
+lincs_iter              = 1
+lincs_order             = 4
+pbc                     = xyz
+comm-mode               = Linear
+nstcomm                 = 100
+comm-grps               = System
+
+; Independent replica velocities
+continuation            = no
+gen_vel                 = yes
+gen_temp                = 300
+gen_seed                = 20261631

@@ -1,0 +1,16 @@
+torch
+torch-geometric
+torch-cluster
+e3nn
+numpy
+pandas
+biopython
+gemmi
+zstandard
+mdtraj
+scikit-learn
+requests
+tqdm
+scipy
+jax
+colabdesign

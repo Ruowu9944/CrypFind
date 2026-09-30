@@ -1,0 +1,94 @@
+{
+  "data": {
+    "data_dir": "datasets/pocketminer",
+    "dataset_subdir": "task2",
+    "structure_dir": "datasets/pocketminer/training-data",
+    "filestem": "gp-to-nearest-resi-procedure-min-rank-7-window-40-stride-1"
+  },
+  "model": {
+    "model_type": "pockmon",
+    "cutoff": 1.5,
+    "n_atom_basis": 128,
+    "n_rbf": 32,
+    "n_pos_enc": 16,
+    "n_interactions": 4,
+    "num_heads": 4,
+    "dropout_rate": 0.1,
+    "lmax": 2,
+    "c_pair": 128,
+    "c_pair_proj": 64,
+    "pair_repr_dir": null,
+    "binder_pair_dir": null,
+    "combined_pair_dir": "datasets/pocketminer/combined_pair",
+    "c_binder_in": 5120,
+    "init_steerable_from_backbone": true,
+    "use_pair_fusion": true,
+    "use_edge_conditioning": false,
+    "max_num_neighbors": 128,
+    "layernorm": "layer",
+    "steerable_norm": "layer",
+    "edge_updates": false,
+    "sep_htr": true,
+    "sep_dir": true,
+    "sep_tensor": true,
+    "cls_hidden_dim": 256,
+    "ablate_sidechain_vectors": true,
+    "use_fusion_multiply": false
+  },
+  "training": {
+    "seed": 0,
+    "num_epochs": 1,
+    "batch_size": 1,
+    "learning_rate": 2e-05,
+    "weight_decay": 1e-05,
+    "scheduler": {
+      "type": "plateau",
+      "mode": "max",
+      "monitor": "val_pr_auc",
+      "factor": 0.5,
+      "patience": 3,
+      "threshold": 0.0001,
+      "min_lr": 1e-07
+    },
+    "shuffle": true,
+    "residue_batches": true,
+    "number_residues_per_batch": 4,
+    "balance_classes": false,
+    "weight_loss": true,
+    "weight_globally": true,
+    "oversample": false,
+    "undersample": false,
+    "constant_size_balanced_sets": false,
+    "number_residues_per_draw": 640,
+    "train_on_intermediates": true,
+    "pos_thresh": 20,
+    "neg_thresh": 60
+  },
+  "finetune": {
+    "pretrained_checkpoint": "checkpoints/pretrain/best.pt",
+    "reset_optimizer": true
+  },
+  "validation": {
+    "val_apo_ids": "datasets/pocketminer/pm-dataset/val_apo_ids_with_chainids.npy",
+    "val_label_dict": "datasets/pocketminer/pm-dataset/val_label_dictionary.npy",
+    "apo_structure_dir": "datasets/pocketminer/pm-dataset/apo-structures"
+  },
+  "test": {
+    "test_apo_ids": "datasets/pocketminer/pm-dataset/test_apo_ids_with_chainids.npy",
+    "test_label_dict": "datasets/pocketminer/pm-dataset/test_label_dictionary.npy",
+    "apo_structure_dir": "datasets/pocketminer/pm-dataset/apo-structures"
+  },
+  "wandb": {
+    "enabled": false,
+    "project": "pockmon",
+    "entity": null,
+    "run_name": "pockmon_pocketminer_combined_pretrained_best_20260609_1030",
+    "log_interval": 10
+  },
+  "output": {
+    "run_name": "pockmon_pocketminer_combined_pretrained_best_20260609_1030",
+    "output_dir": "outputs/pocketminer",
+    "checkpoint_dir": "outputs/pocketminer/checkpoints",
+    "checkpoint_prefix": "outputs/pocketminer/model"
+  }
+}

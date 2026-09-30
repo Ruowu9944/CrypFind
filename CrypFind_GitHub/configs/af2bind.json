@@ -1,0 +1,59 @@
+{
+  "model": {
+    "model_type": "pockmon",
+    "cutoff": 1.5,
+    "n_atom_basis": 128,
+    "n_rbf": 32,
+    "n_pos_enc": 16,
+    "n_interactions": 4,
+    "num_heads": 4,
+    "dropout_rate": 0.5,
+    "lmax": 2,
+    "c_pair": 128,
+    "c_pair_proj": 64,
+    "pair_repr_dir": null,
+    "binder_pair_dir": "datasets/af2bind/binder_pair_all",
+    "c_binder_in": 5120,
+    "init_steerable_from_backbone": true,
+    "use_pair_fusion": true,
+    "use_edge_conditioning": false,
+    "max_num_neighbors": 128,
+    "layernorm": "layer",
+    "steerable_norm": "layer",
+    "edge_updates": false,
+    "sep_htr": true,
+    "sep_dir": true,
+    "sep_tensor": true,
+    "cls_hidden_dim": 256,
+    "ablate_sidechain_vectors": true
+  },
+  "training": {
+    "seed": 0,
+    "num_epochs": 200,
+    "learning_rate": 5e-05,
+    "weight_decay": 0.001,
+    "use_tm_sample_weight": true,
+    "scheduler": {
+      "type": "plateau",
+      "mode": "max",
+      "factor": 0.5,
+      "patience": 20,
+      "threshold": 0.0001,
+      "min_lr": 1e-07
+    },
+    "pretrained_checkpoint": "checkpoints/pretrain/best.pt"
+  },
+  "af2bind": {
+    "pdb_dir": "datasets/af2bind/all_pdbs"
+  },
+  "wandb": {
+    "enabled": false,
+    "project": "pockmon",
+    "run_name": "pockmon_af2bind_pretrained_best_20260609_1915"
+  },
+  "output": {
+    "run_name": "pockmon_af2bind_pretrained_best_20260609_1915",
+    "output_dir": "outputs/af2bind",
+    "checkpoint_dir": "outputs/af2bind/checkpoints"
+  }
+}
