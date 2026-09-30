@@ -48,7 +48,7 @@ from sklearn.metrics import roc_auc_score
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from training.train_pocketminer import make_model
-from pockmon.utils import save_checkpoint, load_checkpoint
+from crypfind.utils import save_checkpoint, load_checkpoint
 
 # ============================================================================
 #  Constants / Paths
@@ -163,7 +163,7 @@ def fix_nonstandard_residues(struc):
 
 def load_and_process_pdb(pdb_path, chain_id, num_atoms=4):
     """Load a PDB, extract single chain, compute (X, S, mask) features."""
-    from pockmon.datasets import abbrev, lookup, _extract_5atom_xyz
+    from crypfind.datasets import abbrev, lookup, _extract_5atom_xyz
 
     try:
         struc = md.load(pdb_path)

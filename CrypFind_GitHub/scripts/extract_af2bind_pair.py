@@ -110,7 +110,7 @@ def extract_binder_features(af_model, pdb_path, chain, output_path):
     #   3. byte-for-byte equality with fixbb's `_wt_aatype` on the same PDB,
     #   4. encoding identical to AF2's `restype_order` (A,R,N,D,C,Q,E,G,H,I,
     #      L,K,M,F,P,S,T,W,Y,V) which is the same scheme used by the trainer
-    #      side `pockmon/datasets.py:lookup` table, so the
+    #      side `crypfind/datasets.py:lookup` table, so the
     #      saved aatype can be used directly by `AF2BinderPairProvider` to
     #      hash-match incoming batches.
     wt_aatype = np.asarray(

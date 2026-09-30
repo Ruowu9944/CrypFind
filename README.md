@@ -51,7 +51,7 @@ The `proteome_scan/` scripts extract pair features, predict per-residue scores, 
 
 ## Repository contents
 
-- `pockmon/` — geometric encoder, dataset loading, and checkpoint utilities.
+- `crypfind/` — geometric encoder, dataset loading, and checkpoint utilities.
 - `scripts/` — structural filtering, graph construction, and pair-feature extraction.
 - `training/` — PocketMiner and AF2BIND training and evaluation.
 - `proteome_scan/` — proteome inference and candidate-site clustering.

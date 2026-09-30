@@ -36,7 +36,7 @@ PROJECT_ROOT = os.path.dirname(SCAN_DIR)
 sys.path.insert(0, PROJECT_ROOT)
 
 from training.train_pocketminer import make_model, get_num_atoms
-from pockmon.utils import load_checkpoint
+from crypfind.utils import load_checkpoint
 
 NONSTANDARD_TO_STANDARD = {
     "MSE": "MET", "PCA": "GLU", "CME": "CYS", "CSO": "CYS",
@@ -181,7 +181,7 @@ def fix_nonstandard_residues(struc):
 def load_and_process_pdb(pdb_path, chain_id="A", num_atoms=4):
     """Load PDB, extract chain, compute (X, S, mask, resnames, resis, plddt)."""
     import mdtraj as md
-    from pockmon.datasets import abbrev, lookup
+    from crypfind.datasets import abbrev, lookup
 
     try:
         struc = md.load(pdb_path)

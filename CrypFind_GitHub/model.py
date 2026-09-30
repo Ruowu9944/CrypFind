@@ -26,7 +26,7 @@ from torch import Tensor
 from torch_geometric.utils import to_dense_batch
 
 
-from pockmon.backbone import PockMonModel  # noqa: E402
+from crypfind.backbone import PockMonModel  # noqa: E402
 
 
 @dataclass

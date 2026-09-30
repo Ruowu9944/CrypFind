@@ -21,7 +21,7 @@ from sklearn.metrics import auc as sklearn_auc
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from pockmon.datasets import (
+from crypfind.datasets import (
     PrecomputedLoader,
     determine_global_weights,
     load_label_dictionary,
@@ -29,7 +29,7 @@ from pockmon.datasets import (
     process_apo_ids,
     simulation_dataset,
 )
-from pockmon.utils import save_checkpoint, load_checkpoint
+from crypfind.utils import save_checkpoint, load_checkpoint
 
 
 def parse_args():
@@ -62,7 +62,7 @@ def make_model(config):
     model_type = model_cfg.get("model_type", "gvp")
 
     if model_type == "pockmon":
-        from pockmon.backbone import PockMonModel
+        from crypfind.backbone import PockMonModel
         return PockMonModel(
             cutoff=model_cfg.get("cutoff", 1.5),
             n_atom_basis=model_cfg.get("n_atom_basis", 128),
